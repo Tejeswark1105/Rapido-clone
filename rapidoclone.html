@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapido Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #222;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      margin-left: 10%;
+      margin-right: 10%;
+      font-size: 150%;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+
+
+    .hero {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8seZ3pdMbCVehc5nZB9SyCpeZ-Tj-GWn53R3pQfbfikyYCYGd');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .ride-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper .icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 15px 15px 15px 45px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .ride-form button {
+      padding: 15px;
+      font-size: 18px;
+      background-color: #ffc107;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .services {
+      padding: 50px 20px;
+
+    }
+
+    .services h2 {
+      font-size: 50px;
+      margin-left: 10%;
+    }
+
+    .underline-word {
+
+      text-decoration: underline;
+      text-decoration-color: #ffc107;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+
+    }
+
+    .services {
+      padding: 50px 50px;
+      background-color: #fff;
+
+    }
+
+    .services h2 {
+      font-size: 32px;
+      text-align: left;
+      margin-bottom: 40px;
+
+      color: #333;
+
+    }
+
+    .underline-word {
+      text-decoration: underline;
+      text-decoration-color: #ffc107;
+
+      text-decoration-thickness: 3px;
+
+      text-underline-offset: 6px;
+
+    }
+
+    .service-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: flex-start;
+
+      gap: 20px;
+
+      max-width: calc(4 * 260px + 3 * 20px);
+
+      margin-left: 10%;
+
+      margin-right: auto;
+
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 15px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      width: 260px;
+      height: 140px;
+      flex-shrink: 0;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 5%;
+    }
+
+    .service-card img {
+      width: 120px;
+
+      height: 120px;
+      margin-bottom: 10px;
+
+      object-fit: contain;
+
+    }
+
+    .service-card p {
+      font-size: 16px;
+
+      font-weight: 600;
+
+      color: #333;
+    }
+
+
+
+    @media (max-width: 1200px) {
+      .service-cards-container {
+        max-width: calc(3 * 260px + 2 * 20px);
+
+      }
+
+      .service-card {
+        width: calc((100% - (2 * 20px)) / 3);
+
+      }
+    }
+
+    .quick-rides-section {
+      background-color: #f7f7f7;
+      padding: 80px 50px;
+    }
+
+    .quick-rides-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 50px;
+    }
+
+    .quick-rides-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .quick-rides-text h1 {
+      font-size: 44px;
+      font-weight: 700;
+      color: #333;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .underline-short {
+      width: 60px;
+      height: 4px;
+      background-color: #ffc107;
+      margin-bottom: 30px;
+    }
+
+    .quick-rides-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .book-ride-secondary {
+      padding: 20px 30px;
+      font-size: 30px;
+      background-color: black;
+      color: white;
+      font-weight: 600;
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .book-ride-secondary:hover {
+      background-color: #f0f0f0;
+      border-color: #ccc;
+    }
+
+    .quick-rides-images {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .quick-rides-images img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+      object-fit: cover;
+      display: block;
+    }
+
+    .safety-section {
+      background-color: #fff;
+      padding: 80px 50px;
+    }
+
+    .safety-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+    }
+
+    .safety-text {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .safety-text h1 {
+      font-size: 44px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .safety-text .underline-short {
+      width: 60px;
+      height: 4px;
+      background-color: #ffc107;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .safety-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .know-more-link {
+      font-size: 18px;
+      color: #ffc107;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .know-more-link:hover {
+      color: #e0a800;
+    }
+
+    .safety-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .safety-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .download-section {
+      background-color: #222;
+      color: #fff;
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    .download-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .download-content h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: white;
+      margin-left: 10px;
+
+
+    }
+
+    .underline-short-white {
+      width: 60px;
+      height: 4px;
+      background-color: #fff;
+      margin: 0 auto 40px auto;
+    }
+
+    .app-cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex-basis: calc(50% - 20px);
+      max-width: 220px;
+    }
+
+    .app-card img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      object-fit: contain;
+    }
+
+    .app-card p {
+      font-size: 18px;
+      line-height: 1.4;
+      color: #ddd;
+    
+    }
+
+ 
+    @media (max-width: 1200px) {
+
+
+      .service-cards-container {
+        max-width: calc(3 * 260px + 2 * 20px);
+      }
+
+      .service-card {
+        width: calc((100% - (2 * 20px)) / 3);
+      }
+    }
+
+    @media (max-width: 992px) {
+
+      .navbar,
+      .hero-content,
+      .quick-rides-section,
+      .flexible-hours-section,
+      .services,
+      .safety-section,
+      .download-section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .quick-rides-content,
+      .flexible-hours-content {
+        flex-direction: column;
+      
+        text-align: center;
+    
+        gap: 40px;
+      }
+
+      .quick-rides-text,
+      .flexible-hours-text {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .quick-rides-text h1,
+      .quick-rides-text p,
+      .flexible-hours-text h1,
+      .flexible-hours-text p {
+        text-align: center;
+     
+      }
+
+      .underline-short {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .book-ride-secondary,
+      .start-earning-button {
+        margin: 0 auto;
+        display: block;
+      }
+
+      .quick-rides-images,
+      .flexible-hours-images {
+        width: 100%;
+        justify-content: center;
+      
+        min-width: unset;
+      }
+
+      .quick-rides-images img,
+      .flexible-hours-images img {
+        max-width: 400px;
+    
+      }
+
+   
+      .safety-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .safety-text {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+      }
+
+      .safety-text h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .safety-text p {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .safety-text .underline-short {
+        margin: 0 auto;
+      }
+
+      .safety-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .safety-image img {
+        max-width: 400px;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+   
+      .download-content {
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .download-content h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-align: center;
+       
+        color: white;
+      }
+
+      .app-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .app-card {
+        flex: 1 1 200px;
+        max-width: 250px;
+        text-align: center;
+      }
+
+      .app-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    }
+    .footer-section {
+      background-color: #fff;
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+
+    .footer-top-section {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-social-icons a {
+      color: #222;
+      font-size: 30px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-icons a:hover {
+      color: #ffc107;
+    }
+
+    .footer-horizontal-line {
+      border-top: 1px solid #eee;
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 100px;
+      padding: 0 50px;
+    }
+
+    .footer-logo img {
+      height: 60px;
+    }
+
+    .footer-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .footer-links {
+      list-style: none;
+      text-align: left;
+      min-width: 200px;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #555;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffc107;
+    }
+
+    .footer-bottom-section {
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    .footer-copyright {
+      padding-top: 20px;
+    }
+
+    .footer-copyright p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 992px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .footer-logo img {
+        margin-right: 0;
+      }
+
+      .footer-links-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-links {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-section {
+        padding: 40px 0 20px;
+      }
+
+      .footer-social-icons a {
+        font-size: 24px;
+      }
+
+      .footer-logo img {
+        height: 50px;
+      }
+
+      .footer-links a {
+        font-size: 14px;
+      }
+
+      .footer-copyright p {
+        font-size: 12px;
+      }
+
+      .footer-content {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="./NewLogo.svg" alt="rapido logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Safety</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bharat Moves On Rapido!</h1>
+      <div class="ride-form">
+        <div class="input-wrapper">
+          <img src="https://img.icons8.com/material-outlined/24/marker--v1.png" class="icon" alt="Location icon">
+          <input type="text" placeholder="Enter Pickup Location">
+        </div>
+        <div class="input-wrapper">
+          <img src="https://img.icons8.com/material-outlined/24/marker--v1.png" class="icon" alt="Location icon">
+          <input type="text" placeholder="Enter Drop Location">
+        </div>
+        <button>Book Ride</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2><span class="underline-word">Our</span> Services</h2>
+
+    <div class="service-cards-container">
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/c9bf4e04eeb9f9e5a52c55a143d095c5_1738146120477.webp"
+          alt="Bike Icon">
+        <p>Bike</p>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/baa331808b70d22c33bdcb6e96c3a104_1738146204279.webp"
+          alt="Auto Icon">
+        <p>Auto</p>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/1075eff8297f3213f71cf66b5852ced5_1738146244087.webp"
+          alt="Auto Share Icon">
+        <p>Auto Share</p>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/5e0eec287db4aae2e64b17b9fa04cbe0_1738146281373.webp"
+          alt="Parcel Icon">
+        <p>Parcel</p>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/dd03f189ce375502079087fa3688f981_1738146314270.webp"
+          alt="Car Rental Icon">
+        <p>Car Rental</p>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/ed7c8d4653fee97d2cd5c76f00871d72_1738146343883.webp"
+          alt="Outstation Icon">
+        <p>Outstation</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-rides-section">
+    <div class="quick-rides-content">
+      <div class="quick-rides-text">
+        <h1>Get Quick Rides, <br> Low Fares</h1>
+        <div class="underline-short"></div>
+        <p>In Rapido we ensure our customers <br> get rides quickly at the most <br> affordable prices.</p>
+        <button class="book-ride-secondary">Book a ride &rarr;</button>
+      </div>
+      <div class="quick-rides-images">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/7bfb291ed6fd8fef3949b695f66f0441_1738146457741.webp"
+          alt="Main Ride Image">
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-rides-section">
+    <div class="quick-rides-content">
+      <div class="quick-rides-images">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/c1ec7791629614c8c040a2a8c68bbc79_1738146545252.webp"
+          alt="Flexible Hours Combined Image">
+      </div>
+      <div class="quick-rides-text">
+        <h1>Flexible Hours & <br> High Earnings</h1>
+        <div class="underline-short"></div>
+        <p>Join as a Rapido captain and earn <br> on your own terms. Driver <br> whenever you want.</p>
+        <button class="book-ride-secondary">Start Earning &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="safety-section">
+    <div class="safety-content">
+      <div class="safety-text">
+        <h1>Safety for all</h1>
+        <div class="underline-short"></div>
+        <p>At Rapido, your safety is our priority. We're dedicated to making every ride safe and comfortable.</p>
+        <a href="#" class="know-more-link">Know More ></a>
+      </div>
+      <div class="safety-image">
+        <img
+          src="https://rapido-app-assets-staging.storage.googleapis.com/fc70552b297693e48cef580e9f9c50c3_1738574004491.webp"
+          alt="Safety for All">
+      </div>
+    </div>
+  </section>
+
+  <section class="download-section">
+    <div class="download-content">
+      <h2>Download Now</h2>
+      <div class="underline-short-white"></div>
+      <div class="app-cards-container">
+        <div class="app-card">
+          <img src="https://rapido-app-assets.storage.googleapis.com/5c6ff9a6070679cf24dbf94c5b78fbbc_1743499170110.svg"
+            alt="Rapido App Icon">
+          <p>Rapido: Bike-Taxi,<br>Auto & Cabs</p>
+        </div>
+        <div class="app-card">
+          <img
+            src="https://rapido-app-assets-staging.storage.googleapis.com/d261bc5886ba0e8d96fe1257004bbfb7_1738146890759.webp"
+            alt="Rapido Captain App Icon">
+          <p>Rapido Captain:<br>Drive & Earn</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-section">
+    <div class="footer-top-section">
+      <div class="footer-social-icons">
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-horizontal-line"></div>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="./NewLogo.svg" alt="Rapido Logo">
+      </div>
+      <div class="footer-links-container">
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <ul class="footer-links">
+          <li><a href="#">Customer Terms - Bike Taxi</a></li>
+          <li><a href="#">Customer Terms - Cabs and Auto</a></li>
+          <li><a href="#">Corporate Affairs</a></li>
+          <li><a href="#">Captain Terms - Bike Taxi</a></li>
+          <li><a href="#">Captain Terms - Cabs and Auto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom-section">
+      <div class="footer-horizontal-line"></div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 Rapido Transportation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
